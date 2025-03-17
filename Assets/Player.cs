@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public Transform moveTarget;
     public Rigidbody2D myrb;
 
+    public GameObject projectile;
+
     void Update()
     {
         Vector3 displacement = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -22,9 +24,18 @@ public class Player : MonoBehaviour
                 move();
             }
         }
+        if (Input.GetMouseButtonDown(1)){
+            if (bm.beatAvailable){
+                bm.beatAvailable = false;
+                shoot();
+            }
+        }
     }
 
     void move(){
         myrb.AddForce((moveTarget.position - transform.position) * speed, ForceMode2D.Impulse);
+    }
+    void shoot(){
+        Instantiate(projectile, transform.position, transform.rotation);
     }
 }

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - beat
+  - projectile
+  - player
   layers:
   - Default
   - TransparentFX

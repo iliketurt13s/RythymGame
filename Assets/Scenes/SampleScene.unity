@@ -342,8 +342,9 @@ GameObject:
   - component: {fileID: 1612447435}
   - component: {fileID: 1612447438}
   - component: {fileID: 1612447437}
+  - component: {fileID: 1612447439}
   m_Layer: 0
-  m_Name: BeatManager
+  m_Name: LogicManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,7 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatAvailable: 1
   beat: {fileID: 4260713756979230151, guid: c9c4876c8932b46b7a0946b216503f78, type: 3}
-  spawnCooldown: 3
+  spawnCooldown: 1
 --- !u!4 &1612447436
 Transform:
   m_ObjectHideFlags: 0
@@ -415,7 +416,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -6, y: -4}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.5
 --- !u!50 &1612447438
 Rigidbody2D:
   serializedVersion: 4
@@ -443,6 +444,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1612447439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612447434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e6824d4c9b96445a7b406c25948678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnCooldown: 5
+  enemy: {fileID: 9006247225353539029, guid: e682bb0d21de76b46b17bd93455c079f, type: 3}
 --- !u!1 &1886820574
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +556,7 @@ GameObject:
   - component: {fileID: 1965581394}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -562,6 +577,7 @@ MonoBehaviour:
   speed: 5
   moveTarget: {fileID: 1574155038}
   myrb: {fileID: 1965581394}
+  projectile: {fileID: 6142753480477781765, guid: 78fc2a4035451f94ea6dcc45e392b906, type: 3}
 --- !u!212 &1965581392
 SpriteRenderer:
   m_ObjectHideFlags: 0
