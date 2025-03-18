@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public float spawnCooldown;
+    public Transform[] spawnPositions;
     public GameObject enemy;
 
     void Start()
@@ -14,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
     void spawn()
     {
-        Instantiate(enemy, new Vector3(Random.Range(-7, 7), 7, 0), Quaternion.identity);
+        Instantiate(enemy, spawnPositions[Random.Range(0, spawnPositions.Length)].position, Quaternion.identity);
         Invoke("spawn", spawnCooldown);
     }
 }

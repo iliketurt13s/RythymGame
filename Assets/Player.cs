@@ -18,13 +18,13 @@ public class Player : MonoBehaviour
         float angle = Mathf.Atan2(displacement.y, displacement.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle + 90f);
 
-        if (Input.GetMouseButtonDown(0)){
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Q)){
             if (bm.beatAvailable){
                 bm.beatAvailable = false;
                 move();
             }
         }
-        if (Input.GetMouseButtonDown(1)){
+        if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.E)){
             if (bm.beatAvailable){
                 bm.beatAvailable = false;
                 shoot();

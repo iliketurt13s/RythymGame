@@ -7,14 +7,16 @@ public class BeatManager : MonoBehaviour
     [HideInInspector] public bool beatAvailable;
 
     public GameObject beat;
-    public float spawnCooldown; //Make better system later
+    public float[] spawnCooldowns;
+    int iterations = 0;
 
     public AudioClip bongo;
 
     void Start()
     {
         beatAvailable = false;
-        Invoke("spawnBeat", spawnCooldown);
+        Invoke("spawnBeat", spawnCooldowns[iterations]);
+        iterations++;
     }
 
     void spawnBeat(){
@@ -22,7 +24,11 @@ public class BeatManager : MonoBehaviour
         AudioSource audio = spawned.GetComponent<AudioSource>();
         audio.clip = bongo;
 
-        Invoke("spawnBeat", spawnCooldown);
+        if (iterations >= spawnCooldowns.Length){
+            iterations = 0;
+        }
+        Invoke("spawnBeat", spawnCooldowns[iterations]);
+        iterations++;
     }
 
     void OnTriggerEnter2D(Collider2D collision){
