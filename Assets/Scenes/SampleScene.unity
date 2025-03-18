@@ -365,6 +365,7 @@ MonoBehaviour:
   beatAvailable: 1
   beat: {fileID: 4260713756979230151, guid: c9c4876c8932b46b7a0946b216503f78, type: 3}
   spawnCooldown: 1
+  bongo: {fileID: 8300000, guid: 05a50ad669870432bae2acd7e4e0c9e0, type: 3}
 --- !u!4 &1612447436
 Transform:
   m_ObjectHideFlags: 0

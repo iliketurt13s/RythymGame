@@ -9,6 +9,8 @@ public class BeatManager : MonoBehaviour
     public GameObject beat;
     public float spawnCooldown; //Make better system later
 
+    public AudioClip bongo;
+
     void Start()
     {
         beatAvailable = false;
@@ -16,7 +18,9 @@ public class BeatManager : MonoBehaviour
     }
 
     void spawnBeat(){
-        Instantiate(beat, new Vector3(10, -4, 0), Quaternion.identity);
+        GameObject spawned = Instantiate(beat, new Vector3(10, -4, 0), Quaternion.identity);
+        AudioSource audio = spawned.GetComponent<AudioSource>();
+        audio.clip = bongo;
 
         Invoke("spawnBeat", spawnCooldown);
     }
@@ -24,6 +28,9 @@ public class BeatManager : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision){
         if (collision.tag == "beat"){
             beatAvailable = true;
+            
+            AudioSource audioSource = collision.GetComponent<AudioSource>();
+            audioSource.Play();
         }
     }
     void OnTriggerExit2D(Collider2D collision){
