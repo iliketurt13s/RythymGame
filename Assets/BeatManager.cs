@@ -35,8 +35,8 @@ public class BeatManager : MonoBehaviour
         if (collision.tag == "beat"){
             beatAvailable = true;
             
-            AudioSource audioSource = collision.GetComponent<AudioSource>();
-            audioSource.Play();
+            Beat b = collision.GetComponent<Beat>();
+            b.StartCoroutine("sound");
         }
     }
     void OnTriggerExit2D(Collider2D collision){
