@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
         float angle = Mathf.Atan2(displacement.y, displacement.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, angle + 90f);
 
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Q)){
+        /*if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Q)){
             if (bm.beatAvailable){
                 bm.beatAvailable = false;
                 move();
@@ -29,13 +29,13 @@ public class Player : MonoBehaviour
                 bm.beatAvailable = false;
                 shoot();
             }
-        }
+        }*/
     }
 
-    void move(){
+    public void move(){
         myrb.AddForce((moveTarget.position - transform.position) * speed, ForceMode2D.Impulse);
     }
-    void shoot(){
+    public void shoot(){
         Instantiate(projectile, transform.position, transform.rotation);
     }
 }

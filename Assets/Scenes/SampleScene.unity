@@ -649,13 +649,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 268c6956780c44141b36b6f783bfe2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatAvailable: 1
   beat: {fileID: 4260713756979230151, guid: c9c4876c8932b46b7a0946b216503f78, type: 3}
-  spawnCooldowns:
-  - 0.75
-  - 0.5
-  - 0.5
-  - 0.75
+  spawnCooldown: 0
   bongo: {fileID: 8300000, guid: 05a50ad669870432bae2acd7e4e0c9e0, type: 3}
 --- !u!4 &1612447436
 Transform:

@@ -6,9 +6,14 @@ public class Beat : MonoBehaviour
 {
     public float speed;
 
+    public enum BeatTypes {Move, Shoot};
+    public BeatTypes type;
+
+    Player p;
+
     void Start()
     {
-        
+        p = GameObject.FindGameObjectWithTag("player").GetComponent<Player>();
     }
 
     void Update()
@@ -16,14 +21,20 @@ public class Beat : MonoBehaviour
         transform.Translate(new Vector3(-speed, 0, 0) * Time.deltaTime);
     }
 
-    public IEnumerator sound(){
-        yield return new WaitForSeconds(0.1f);
+    public void sound(){
+        //yield return new WaitForSeconds(0.1f);
+
+        if (type == BeatTypes.Move){
+            p.move();
+        } else if (type == BeatTypes.Shoot){
+            p.shoot();
+        }
 
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.Play();
 
-        yield return new WaitForSeconds(3f);
+        //yield return new WaitForSeconds(3f);
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }
